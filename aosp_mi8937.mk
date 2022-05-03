@@ -9,8 +9,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common AOSP stuff.
+TARGET_BOOT_ANIMATION_RES := 720
+USE_PIXEL_CHARGING := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 # Inherit from mi8937 device
 $(call inherit-product, device/xiaomi/mi8937/device.mk)
@@ -28,7 +31,7 @@ PRODUCT_PACKAGES += \
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := mi8937
-PRODUCT_NAME := lineage_mi8937
+PRODUCT_NAME := aosp_mi8937
 BOARD_VENDOR := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := MSM8937
